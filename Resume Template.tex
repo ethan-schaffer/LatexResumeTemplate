@@ -1,0 +1,156 @@
+\documentclass[10]{article}
+\usepackage[utf8]{inputenc}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage[top = .25in, bottom = .25in,left = .35in, right = .35in]{geometry}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{hyperref}
+\definecolor{linkcolour}{rgb}{0,0.2,0.6}
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour, linkcolor=linkcolour}
+\usepackage{enumitem}
+\usepackage{changepage}
+\usepackage{xifthen}
+
+\pagenumbering{gobble}
+
+\newcommand{\setup}{\normalsize}
+\newcommand{\comment}[1]{}
+
+\newcommand{\createheader}[5]{\begin{center}
+    {\LARGE #1} \\[1mm]
+    \href{mailto:#4}{#4} $\bullet$
+    \href{https://www.#2}{#2}
+    $\bullet$ \href{https://www.#3/}{#3} $\bullet$ #5 
+    \end{center}
+    \vspace{-5mm}}
+    
+\newcommand{\createsection}[1]{
+        \vspace{1.75mm}
+        {\scshape\large\raggedright #1} \hfill \vspace{.15 cm}
+        \hrule \vspace{.3cm}
+    }    
+    
+\newenvironment{entry}[4]
+{\vspace{-1mm}\textbf{#1}, \emph{#2}\hfill{\ifthenelse{\equal{#4}{}}{#3}{#3 - #4}}
+\vspace{-5pt}
+% Started as leftmargin=4em, rightmargin=12em
+\begin{itemize}[noitemsep,leftmargin=3em, rightmargin=9em,label=\raisebox{0.25ex}{\tiny$\bullet$}]}
+{\end{itemize}\vspace{-1mm}}
+
+\newenvironment{entrynobullets}[2]
+{\vspace{-1mm}\textbf{#1}: {#2}}
+% Started as leftmargin=4em, rightmargin=12em
+{\vspace{1mm}}
+
+
+\newenvironment{emptyentry}
+{\vspace{-1mm}
+\vspace{-5pt}
+% Started as leftmargin=4em, rightmargin=12em
+\begin{itemize}[noitemsep,leftmargin=3em, rightmargin=9em,label=\raisebox{0.25ex}{\tiny$\bullet$}]}
+{\end{itemize}\vspace{-1mm}}
+
+\newenvironment{entryflush}[4]
+{\vspace{-1mm}\textbf{#1}, \emph{#2}\hfill{\ifthenelse{\equal{#4}{}}{#3}{#3 - #4}}
+\vspace{-5pt}
+\begin{itemize}[noitemsep,leftmargin=4em, rightmargin=3px,label=\raisebox{0.25ex}{\tiny$\bullet$}]}
+{\end{itemize}\vspace{-1mm}}
+
+\newcommand{\entryme}[4]{\textbf{#1}, \emph{#2}\hfill{\ifthenelse{\equal{#4}{}}{#3}{#3 - #4}}}
+
+\newenvironment{mylist}
+{\begin{tabular}{rp{13cm}}}
+{\end{tabular}}
+
+\setlength{\tabcolsep}{12pt}
+
+\begin{document}
+
+\setup
+
+\createheader{First Last}{github.com/github-username}{linkedin.com/in/linkedin-username}{emailaddress@gmail.com}{Phone number}
+
+\vspace{1.5mm}
+\createsection{Education}
+         \begin{entryflush}
+        {University of Maryland}{College Park}
+        {Expected Graduation}{Month Year}
+        \vspace{-.3mm}
+        \item[]\hspace{-.75em}BS Degree Called
+        % GPA HERE
+		% GPA HERE
+		% GPA HERE
+        \hfill GPA: 4.00
+		\item[]\hspace{-.75em}\textbf{Relevant Coursework: }Names of some classes
+		\item[]\hspace{-.75em} Names of more classes
+\end{entryflush} 
+
+\newcommand{\experiencevspace}{\vspace{1mm}}
+\createsection{Experience}
+
+\begin{entry}
+{Role}{Company}{Month Year Start}{Month Year End}
+\item Bullet Point 1
+\item Bullet Point 2
+\end{entry}
+\experiencevspace
+
+\begin{entry}
+{Role}{Company}{Month Year Start}{Month Year End}
+\item Bullet Point 1
+\item Bullet Point 2
+\end{entry}
+\experiencevspace
+
+\begin{entry}
+{Role}{Company}{Month Year Start}{Month Year End}
+\item Bullet Point 1
+\item Bullet Point 2
+\end{entry}
+\experiencevspace
+
+\begin{entry}
+{Role}{Company}{Month Year Start}{Month Year End}
+\item Bullet Point 1
+\item Bullet Point 2
+\end{entry}
+\experiencevspace
+\createsection{Personal Projects}
+
+\begin{entry}
+{\href{https://github.com/project-link}{\color{black}{Project Name}}}{Program Languages, Technologies}{Time you did it}{} 
+\item Some info about it
+\item More info about it
+\end{entry}
+
+\begin{entry}
+{\href{https://github.com/project-link}{\color{black}{Project Name}}}{Program Languages, Technologies}{Time you did it}{} 
+\item Some info about it
+\item More info about it
+\end{entry}
+
+\begin{entry}
+{\href{https://github.com/project-link}{\color{black}{Project Name}}}{Program Languages, Technologies}{Time you did it}{} 
+\item Some info about it
+\item More info about it
+\end{entry}
+
+\createsection{Computer and Programming Skills}
+
+\begin{entrynobullets}
+{Programming}{Language Names}
+\end{entrynobullets}
+
+\begin{entrynobullets}
+{Software}{Other Softwares you Know}
+\end{entrynobullets}
+
+\begin{entrynobullets}
+{Tools/APIs}{Some other things if you want}
+\end{entrynobullets}
+
+\createsection{Awards and Scholarships}
+
+\-\hspace{1.5em}\textbf{Another Awesome Things}, More about it\hfill Times\\
+\-\hspace{1.5em}\textbf{Another Awesome Things}, More about it\hfill Times\\
+\-\hspace{1.5em}\textbf{Another Awesome Things}, More about it\hfill Times\\
+\end{document}
